@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: '微软雅黑';
+}
+a:hover,
+a:active,
+a:focus {
+  text-decoration: none;
+}
+ul,
+ol {
+  list-style: none;
+}
+.menu {
+  width: 180px;
+  height: 100%;
+  position: absolute;
+  background-color: #222d32;
+}
+.menu .menu-logo {
+  width: 100%;
+  height: 50px;
+  background-color: #367fa9;
+}
+.menu .menu-logo a {
+  color: #fff;
+  font-size: 20px;
+  line-height: 50px;
+  display: block;
+  font-weight: bold;
+  text-align: center;
+}
+.menu .menu-user {
+  padding: 30px 20px;
+}
+.menu .menu-user img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.menu .menu-user span {
+  color: #fff;
+  font-size: 12px;
+}
+.menu .option {
+  margin-top: 10px;
+  padding: 0px 30px;
+}
+.menu .option li {
+  line-height: 40px;
+}
+.menu .option a {
+  color: #aaa;
+}
+.menu .option .classify {
+  display: none;
+}
+.menu .option .classify a {
+  display: block;
+  font-size: 12px;
+  padding-left: 20px;
+}
+.content {
+  width: 100%;
+  height: 100%;
+  padding-left: 180px;
+}
+.content .content-top {
+  height: 50px;
+  background-color: #3c8dbc;
+  margin-bottom: 20px;
+}
+.content .content-top a {
+  color: #fff;
+  font-size: 16px;
+  line-height: 50px;
+}
+.content .content-top a:last-child {
+  float: right;
+  margin-right: 20px;
+}
+.content .content-top a:first-child {
+  margin-left: 20px;
+}
+.content .content-bottom {
+  padding: 0px 15px;
+}
+.content .content-bottom .canvas {
+  width: 45%;
+  height: 400px;
+  float: left;
+}
+.content .content-bottom .canvas:last-child {
+  margin-left: 10%;
+}
+.content .waring {
+  color: #f00;
+}
+.content.full {
+  padding-left: 0px;
+}

@@ -1,0 +1,110 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+    font-family: '微软雅黑';
+}
+a:hover,a:active,a:focus{
+    text-decoration:none;
+}
+ul,ol{
+    list-style: none;
+}
+// 左边菜单栏
+.menu{
+    width: 180px;
+    height: 100%;
+    position: absolute;
+    background-color:#222d32;
+    // 菜单栏logo
+    .menu-logo{
+        width: 100%;
+        height: 50px;
+        background-color: #367fa9;
+        a{
+            color:#fff;
+            font-size: 20px;
+            line-height: 50px;
+            display: block;
+            font-weight: bold;
+            text-align: center;
+        }
+    }
+    // 菜单栏用户信息
+    .menu-user{
+        padding:30px 20px;
+        img{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        span{
+            color: #fff;
+            font-size: 12px;
+        }
+    }
+    // 菜单栏选项
+    .option{
+        margin-top:10px;
+        padding:0px 30px;
+        li{
+            line-height: 40px;
+        }
+        a{
+            color:#aaa;
+        }
+        .classify{
+            display: none;
+            a{
+                display: block;
+                font-size: 12px;
+                padding-left: 20px;
+            }
+        }
+    }
+}
+
+
+// 右边内容区域
+.content{
+    width: 100%;
+    height: 100%;
+    padding-left: 180px;
+    .content-top{
+        height: 50px;
+        background-color:#3c8dbc;
+        margin-bottom: 20px;
+        a{
+            color:#fff;
+            font-size: 16px;
+            line-height: 50px;
+            &:last-child{
+                float: right;
+                margin-right: 20px;
+            }
+            &:first-child{
+                margin-left: 20px;
+            }
+        }
+    }
+    .content-bottom{
+        padding:0px 15px;
+        .canvas{
+            width: 45%;
+            height: 400px;
+            float: left;
+            &:last-child{
+                margin-left: 10%;
+            }
+        }
+    }
+    .waring{
+        color:#f00;
+    }
+}
+.content.full{
+    padding-left: 0px;
+}

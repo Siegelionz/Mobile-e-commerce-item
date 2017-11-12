@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>乐淘云购后台管理系统</title>
+    <!-- 引入bootstrap库 -->
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+    <!-- 引入NProgress -->
+    <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
+    <!-- 引入表单验证插件的css -->
+    <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.min.css">
+    <!-- 引入当前页面的css -->
+    <link rel="stylesheet" href="./css/admin.css">
+</head>
+
+<body>
+    <!-- 左边菜单栏 -->
+    <div class="menu">
+        <!-- 菜单栏logo -->
+        <div class="menu-logo">
+            <a href="./index.html">
+                ITCAST
+            </a>
+        </div>
+        <!-- 菜单栏用户信息 -->
+        <div class="menu-user">
+            <img src="./images/default.png" alt="">
+            <span>超级管理员</span>
+        </div>
+        <!-- 菜单栏选项 -->
+        <ul class="option">
+            <li>
+                <a href="javascript:;">
+                    <i class="glyphicon glyphicon-user"></i>
+                    用户管理
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="glyphicon glyphicon-list"></i>
+                    分类管理
+                    <div class="classify">
+                        <a href="./oneClassify.html">一级分类</a>
+                        <a href="javascript">二级分类</a>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="glyphicon glyphicon-tags"></i>
+                    商品管理
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- 右边内容区 -->
+    <div class="content">
+        <div class="content-top">
+            <a href="javascript:;">
+                <i data-btn class="glyphicon glyphicon-align-justify"></i>
+            </a>
+            <a href="#myModal" data-toggle="modal">
+                <i class="glyphicon glyphicon-log-out"></i>
+            </a>
+        </div>
+        <div class="content-bottom">
+            <!-- 当前的位置 -->
+            <ol class="breadcrumb">
+                <li>
+                    <a href="#">管理系统</a>
+                </li>
+                <li class="active">用户管理</li>
+            </ol>
+            <!-- 数据表格 -->
+            <div class="bs-example" data-example-id="hoverable-table">
+                <table class="table table-hover table-bordered text-center">
+                    <thead>
+                        <tr class="text-center">
+                            <th>序号</th>
+                            <th>用户名</th>
+                            <th>手机号</th>
+                            <th>状态</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>
+                                <a href="javascript:;" class="btn btn-primary">启用</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- 分页 -->
+            <ul class="pagination"></ul>
+        </div>
+    <!-- 弹出框 -->
+    <div class="modal fade" id="userModal" tabindex="-1">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h4 class="modal-title" id="myModalLabel">温馨提示</h4>
+            </div>
+            <div class="modal-body waring">
+              <!-- <i class="glyphicon glyphicon-info-sign"></i>您确定要退出后台管理系统吗？ -->
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+              <button type="button" class="btn btn-primary ">确定</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 模板引擎 -->
+    <script type="text/x-template" id="user-template">
+        {{each rows}}
+        <tr>
+            <th scope="row">1</th>
+            <td>{{ $value.username }}</td>
+            <td>{{ $value.mobile }}</td>
+            <td>{{ $value.isDelete == 1 ? '已禁用' : '已启动' }}</td>
+            <td>
+                {{ if $value.isDelete == 1 }} 
+                    <a data-id="{{ $value.id }}" data-name="{{ $value.username }}" data-id-Delete="{{ $value.isDelete}}" href="#userModal" data-toggle="modal" class="btn btn-primary">启用</a>
+                {{ else }}
+                    <a data-id="{{ $value.id }}" data-name="{{ $value.username }}" data-id-Delete="{{ $value.isDelete}}" href="#userModal" data-toggle="modal" class="btn btn-danger">禁用</a>
+                {{ /if }}
+            </td>
+        </tr>
+        {{/each}}
+    </script>
+    <!-- 引入jquery -->
+    <script src="./lib/jquery/jquery.min.js"></script>
+    <!-- 引入bootstrap的插件 -->
+    <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+    <!-- 引入模板引擎插件 -->
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <!-- 引入进度条插件 -->
+    <script src="./lib/nprogress/nprogress.js"></script>
+    <!-- 引入分页插件 -->
+    <script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+    <!-- 引入user文件 -->
+    <script src="./js/user.js"></script>
+    <!-- 引入admin.js -->
+    <script src="./js/admin.js"></script>
+</body>
+
+</html>
