@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>乐淘云购后台管理系统</title>
+    <!-- 引入bootstrap库 -->
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+    <!-- 引入NProgress -->
+    <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
+    <!-- 引入表单验证插件的css -->
+    <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.min.css">
+    <!-- 引入当前页面的css -->
+    <link rel="stylesheet" href="./css/admin.css">
+</head>
+
+<body>
+    <!-- 左边菜单栏 -->
+    <div class="menu">
+        <!-- 菜单栏logo -->
+        <div class="menu-logo">
+            <a href="./index.html">
+                ITCAST
+            </a>
+        </div>
+        <!-- 菜单栏用户信息 -->
+        <div class="menu-user">
+            <img src="./images/default.png" alt="">
+            <span>超级管理员</span>
+        </div>
+        <!-- 菜单栏选项 -->
+        <ul class="option">
+            <li>
+                <a href="./user.html">
+                    <i class="glyphicon glyphicon-user"></i>
+                    用户管理
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="glyphicon glyphicon-list"></i>
+                    分类管理
+                    <div class="classify">
+                        <a href="./oneClassify.html">一级分类</a>
+                        <a href="./secondClassify.html">二级分类</a>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="glyphicon glyphicon-tags"></i>
+                    商品管理
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- 右边内容区 -->
+    <div class="content">
+        <div class="content-top">
+            <a href="javascript:;">
+                <i data-btn class="glyphicon glyphicon-align-justify"></i>
+            </a>
+            <a href="#myModal" data-toggle="modal">
+                <i class="glyphicon glyphicon-log-out"></i>
+            </a>
+        </div>
+        <!-- 弹出模态框  退出管理系统-->
+        <div class="modal fade" id="myModal" tabindex="-1">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">温馨提示</h4>
+                    </div>
+                    <div class="modal-body waring">
+                        <i class="glyphicon glyphicon-info-sign"></i>您确定要退出后台管理系统吗？
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-primary secede">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-bottom">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="#">管理系统</a>
+                </li>
+                <li class="active">分类管理</li>
+                <li class="active">一级分类</li>
+            </ol>
+            <button class="btn btn-default" style="margin-bottom:20px" data-target="#addclassify" data-toggle="modal">添加分类</button>
+            <div class="bs-example" data-example-id="hoverable-table">
+                <table class="table table-hover table-bordered text-center">
+                    <thead>
+                        <tr class="text-center">
+                            <th>序号</th>
+                            <th>分类名称</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>户外馆</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <ul class="pagination"></ul>
+        </div>
+        <!-- 弹出框  添加分类-->
+        <div class="modal fade" id="addclassify" tabindex="-1">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">温馨提示</h4>
+                    </div>
+                    <div class="modal-body waring">
+                        <form class="form-horizontal" id="first-form">
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input type="text" name="categoryName" class="form-control" id="categoryName" placeholder="输入一级分类">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <a href="javascript:;" class="btn btn-primary ">确定</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 模板引擎 -->
+    <script type="text/x-template" id="addOne-template">
+        <%for(var i=0;i<rows.length;i++){%>
+            <tr>
+                <td>
+                    <%= i+1 %>
+                </td>
+                <td>
+                    <%=rows[i].categoryName%>
+                </td>
+            </tr>
+            <%}%>
+    </script>
+    <!-- 引入jquery -->
+    <script src="./lib/jquery/jquery.min.js"></script>
+    <!-- 引入bootstrap的插件 -->
+    <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+    <!-- 引入分页插件 -->
+    <script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+    <!-- 引入模板引擎插件 -->
+    <script src="./lib/artTemplate/template-native.js"></script>
+    <!-- 引入进度条插件 -->
+    <script src="./lib/nprogress/nprogress.js"></script>
+    <!-- 引入admin.js -->
+    <script src="./js/admin.js"></script>
+    <!-- 引入oneClassify.js -->
+    <script src="./js/oneClassify.js"></script>
+</body>
+
+</html>
