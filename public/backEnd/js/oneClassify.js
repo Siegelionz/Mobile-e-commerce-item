@@ -59,11 +59,6 @@ $(function () {
         var $form = $(e.target);
         var bv = $form.data('bootstrapValidator');
         //以上的步骤就是当用户填写用户名和密码符合规则的时候 提交表单通过ajax从后台拿数据来判断是否正确
-    });
-
-
-
-    $('.modal-footer').on('click', '.btn-primary', function () {
         var form = $('#first-form').serialize();
         $.ajax({
             type: 'post',
@@ -77,7 +72,25 @@ $(function () {
 
             }
         })
-    })
+    });
+
+
+
+    // $('.modal-footer').on('click', '.btn-primary', function () {
+    //     var form = $('#first-form').serialize();
+    //     $.ajax({
+    //         type: 'post',
+    //         url: '/category/addTopCategory',
+    //         data: form,
+    //         success: function (data) {
+    //             if(data.success == true) {
+    //                 $('#addclassify').modal('hide');
+    //                 addOneClassify();
+    //               }
+
+    //         }
+    //     })
+    // })
 
 
 })
